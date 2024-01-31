@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApplicationLessonITProger.Models;
 
 namespace WebApplicationLessonITProger.Controllers
 {
@@ -7,6 +8,15 @@ namespace WebApplicationLessonITProger.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Check(Contact contact)
+        {
+            if (ModelState.IsValid)
+                return Redirect("/"); 
+
+            return View("Index");
         }
     }
 }
